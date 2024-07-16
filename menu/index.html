@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #update {
+            height: 30px;
+            width: 90px;
+            border-color: silver;
+            text-align: center;
+            background-color: whitesmoke;
+            padding: 0;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div>
+            <p>今日の晩ご飯は･･･</p>
+            <input type="button" id="update" value="ポチ">
+            <p id="name"></p>
+
+        </div>
+    </main>
+    <script>
+        const menuList = ["親子丼", "カレーライス", "パスタ（オリーブオイルとガーリック）", "焼きそば", "豆腐チゲ鍋", "サラダチキン", "オムライス", "ハンバーグ", "お好み焼き", "シーフードフライ", "餃子", "焼き鳥", "タコライス", "チキンカツ", "野菜炒め", "ポークソテー", "チャーハン", "グラタン", "鶏の唐揚げ", "ラタトゥイユ", "ビビンバ", "シュウマイ", "ローストポーク", "ピザ（自家製）", "ミートローフ", "チキンステーキ", "ハヤシライス", "ポトフ", "麻婆豆腐", "オムレツ", "カルボナーラ", "ハンバーガー", "チーズフォンデュ", "ラーメン（家庭用）", "パエリア", "カポナータ", "ピリ辛鶏胸肉", "ベーコン巻きエビフライ", "カニクリームコロッケ", "タンドリーチキン", "ホイコーロー", "鶏のから揚げ", "えびフライ", "シーザーサラダ", "ポテトサラダ", "オニオンスープ", "カレードリア", "フライドポテト", "チキンナゲット", "サーモンのホイル焼き", "ミートソーススパゲッティ", "たこ焼き", "すき焼き", "とんかつ", "きんぴらごぼう", "サーモンのマリネ", "チキンライス", "ブリトー", "シーフードパスタ", "カレーうどん", "ソーセージ炒め", "焼きししゃも", "パプリカの肉詰め", "マカロニグラタン", "ローストチキン", "シンプルなおでん", "オイスターソース炒め", "鮭のホイル焼き", "レンズ豆のスープ", "グリルチーズサンド", "タイ風グリーンカレー", "インスタントラーメンのアレンジ", "酢豚", "ホットドッグ", "カツサンド", "パンプキンスープ", "ポークカレー", "ビーフシチュー", "チキンテリヤキ", "カリカリ焼きそば", "ニョッキ", "キーマカレー", "カニクリームパスタ", "チキンパルメザン", "サーモンのムニエル", "ホットポット（すき焼き風）", "ラザニア", "メキシカンライス", "シーフードカレー", "きのこリゾット", "ピーマンの肉詰め", "レモンチキン", "パイナップルチキン", "サーモンのソテー", "オムそば", "フレンチトースト", "メンチカツ", "グリル野菜のサラダ", "ビーフストロガノフ", "バジルチキン"];
+        const nameElem = document.getElementById("name");
+        const buttonElem = document.getElementById("update");
+
+        let resultMenuName = "";
+        let counter = 0;
+        function insertTextToElem(ary, elem, textElem) {
+            counter++;
+            console.log(counter);
+
+            // どぅああああ処理
+            if (counter % 7 === 0) {
+                const menuItem = "どぅあぁあぁぁぁあ！！";
+                // 現在のメニュー名と更新後のメニュー名が一緒だったら自分自身を呼び出してリトライ。
+                if (textElem === menuItem) {
+                    console.log(textElem + " " + menuItem + " -> retry");
+                    return insertTextToElem(ary, elem, textElem);
+                }
+                elem.textContent = menuItem;
+                resultMenuName = menuItem;
+                console.log(menuItem);
+                return;
+            }
+
+            if (counter % 8 === 0) {
+                const menuItem = "そうだな、ガノンドルフにしよう！";
+                // 現在のメニュー名と更新後のメニュー名が一緒だったら自分自身を呼び出してリトライ。
+                if (textElem === menuItem) {
+                    console.log(textElem + " " + menuItem + " -> retry");
+                    return insertTextToElem(ary, elem, textElem);
+                }
+                elem.textContent = menuItem;
+                resultMenuName = menuItem;
+                console.log(menuItem);
+                return;
+            }
+
+            if (counter % 8 === 0) {
+                const menuItem = "そうだな、ガノンドルフになろう！";
+                // 現在のメニュー名と更新後のメニュー名が一緒だったら自分自身を呼び出してリトライ。
+                if (textElem === menuItem) {
+                    console.log(textElem + " " + menuItem + " -> retry");
+                    return insertTextToElem(ary, elem, textElem);
+                }
+                elem.textContent = menuItem;
+                resultMenuName = menuItem;
+                console.log(menuItem);
+                return;
+            }
+
+            const menuItem = ary[Math.floor(Math.random() * ary.length)];
+            // 現在のメニュー名と更新後のメニュー名が一緒だったら自分自身を呼び出してリトライ。
+            if (textElem === menuItem) {
+                console.log(textElem + " " + menuItem + " -> retry");
+                return insertTextToElem(ary, elem, textElem);
+            }
+            elem.textContent = "そうだな、" + menuItem + "にしよう！";
+            resultMenuName = menuItem;
+            console.log(menuItem);
+            return;
+
+        }
+
+        buttonElem.onclick = function () {
+            insertTextToElem(menuList, nameElem, resultMenuName);
+            return;
+        };
+
+    </script>
+</body>
+
+</html>
